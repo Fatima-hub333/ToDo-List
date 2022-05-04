@@ -5,6 +5,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
    entry: {
      index: './src/index.js',
    },
+   devtool: 'inline-source-map',
+  devServer: {
+    static: './dist',
+  },
   plugins: [
     new HtmlWebpackPlugin({
         template: './src/index.html',
