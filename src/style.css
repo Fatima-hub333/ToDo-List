@@ -1,0 +1,48 @@
+body {
+  background-color: rgb(78, 195, 199);
+}
+
+.toDoHolder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  flex-direction: column;
+  margin-top: 210px;
+  width: 600px;
+  margin-left: 420px;
+}
+
+.header {
+  height: 40px;
+}
+
+h3 {
+  font-size: 25px;
+  text-align: center;
+}
+
+.header .icon {
+  padding-left: 300px;
+  padding-top: 23px;
+}
+
+.input input {
+  border-style: none;
+}
+
+.clear {
+  border-style: none;
+}
+
+.icons {
+  margin-left: 560px;
+}
+
+.header i {
+  padding-left: 100px;
+}
+
+.remove {
+  background: whitesmoke;
+}
