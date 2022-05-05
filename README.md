@@ -40,7 +40,7 @@ To get a local copy up and running follow these simple steps:
 
 ## Authors
 
-👤 **Roberto A. Baños Alvarez**
+👤 **Fatima Zahir**
 
 - GitHub: [@githubhandle](https://github.com/Fatima-hub333)
 - Twitter: [@twitterhandle](https://twitter.com/Fatima_developr)
