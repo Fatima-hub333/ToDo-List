@@ -93,4 +93,9 @@ input[type=checkbox]:checked + input[type=text] {
   background-color: transparent;
 }
 
-
+.clear {
+  color: #969696;
+  padding: 3vh;
+  border: none;
+  width: 100%;
+}
