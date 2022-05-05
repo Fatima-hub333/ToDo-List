@@ -12,7 +12,16 @@ body {
   background-color: #fafafa;
 }
 
-
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  background-color: white;
+  box-shadow: rgb(112, 109, 109) 2px 2px 5px 0.8px;
+  margin: 10vh 20vw;
+  width: 60%;
+}
 
 #uList {
   margin: 2vh 1vw;
@@ -84,9 +93,4 @@ input[type=checkbox]:checked + input[type=text] {
   background-color: transparent;
 }
 
-.clear {
-  color: #969696;
-  padding: 3vh;
-  border: none;
-  width: 100%;
-}
+
