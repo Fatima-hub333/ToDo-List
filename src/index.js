@@ -1,22 +1,27 @@
-import _ from 'lodash';
 import './style.css';
-import dots from './dots.svg';
+import { savedata, retrivedata } from './modules/localStorage';
 
-function component() {
-  const element = document.createElement('div');
-  
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
+const entryTask = document.getElementById('newTask');
+const clearBtn = document.querySelector('.clear');
 
-  // Add the image to our existing div.
-  const myIcon = new Image();
-  myIcon.src = dots;
+/* Add new value */
+entryTask.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    savedata();
+    entryTask.value = null;
+    retrivedata();
+  }
+});
 
-  element.appendChild(myIcon);
+/* Erase all completed task */
+clearBtn.addEventListener('click', () => {
+  const listOnStorage = JSON.parse(localStorage.getItem('toDoList'));
+  const filterListOnStorage = listOnStorage.filter((item) => !item.completed);
+  for (let i = 1; i < filterListOnStorage.length + 1; i += 1) {
+    filterListOnStorage[i - 1].index = i;
+  }
+  localStorage.setItem('toDoList', JSON.stringify(filterListOnStorage));
+  retrivedata();
+});
 
-  
-  return element;
-}
-  
-document.body.appendChild(component());
+window.addEventListener('load', retrivedata);
