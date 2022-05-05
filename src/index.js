@@ -1,41 +1,27 @@
 import './style.css';
+import { savedata, retrivedata } from './modules/localStorage';
 
-const myTodo = [
-  {
-    task: 'Microverse recap',
-    progress: false,
-    index: 0,
-  },
-  {
-    task: 'Buy grocery',
-    progress: false,
-    index: 1,
-  },
-  {
-    task: 'Cleaning house',
-    progress: false,
-    index: 2,
-  },
-  {
-    task: 'Loundery',
-    progress: false,
-    index: 3,
-  },
-];
-const toDoListFunc = () => {
-  const sect = document.getElementById('myList');
-  for (let i = 0; i <= myTodo.length; i += 1) {
-    const toDoList = document.createElement('div');
-    toDoList.className = 'addedTasks';
-    const script = `<input type="checkbox" id="list" name="list" value="text">
-<label for="vehicle1">${myTodo[i].task}</label>
-<div class='icons'>
-<i class="fa-solid fa-ellipsis-vertical"></i>
-</div>
-<hr>`;
+const entryTask = document.getElementById('newTask');
+const clearBtn = document.querySelector('.clear');
 
-    toDoList.innerHTML = script;
-    sect.appendChild(toDoList);
+/* Add new value */
+entryTask.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    savedata();
+    entryTask.value = null;
+    retrivedata();
   }
-};
-toDoListFunc();
+});
+
+/* Erase all completed task */
+clearBtn.addEventListener('click', () => {
+  const listOnStorage = JSON.parse(localStorage.getItem('toDoList'));
+  const filterListOnStorage = listOnStorage.filter((item) => !item.completed);
+  for (let i = 1; i < filterListOnStorage.length + 1; i += 1) {
+    filterListOnStorage[i - 1].index = i;
+  }
+  localStorage.setItem('toDoList', JSON.stringify(filterListOnStorage));
+  retrivedata();
+});
+
+window.addEventListener('load', retrivedata);
