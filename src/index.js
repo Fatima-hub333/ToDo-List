@@ -1,9 +1,8 @@
 import './style.css';
 
-import './style.css';
-import HTMLTemplate from './modules/htmltemplate.js';
-import List from './modules/list.js';
-import Item from './modules/list-item.js';
+import HTMLTemplate from './modules/htmltemplate';
+import List from './modules/list';
+import Item from './modules/list-item';
 
 const myapp = document.querySelector('.myapp');
 const template = document.createElement('div');
